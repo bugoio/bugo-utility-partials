@@ -11,6 +11,9 @@
 {{ else if in $url.Host "youtube" }}
   {{ $scratch.Set "type" "youtube" }}
   {{ $scratch.Set "videoId" (index $url.Query.v 0) }}
+{{ else if in $url.Host "youtu" }}
+  {{ $scratch.Set "type" "youtube" }}
+  {{ $scratch.Set "videoId" (substr $url.Path 1 ) }}
 {{ else }}
   {{ $domain := split $url.Host "." }}
   {{ $scratch.Set "type" "other" }}
