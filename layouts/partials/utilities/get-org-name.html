@@ -1,7 +1,7 @@
 {{ $name := slice }}
-{{ if .Site.Data.organization.organization_name }}
-  {{ $name = $name | append .Site.Data.organization.organization_name }}
+{{ if .Site.Params.altTitle }}
+  {{ $name = $name | append .Site.Params.altTitle }}
 {{ else }}
-  {{ $name = $name | append .Site.Title }}
+  {{ $name = $name | append .Site.Title  }}
 {{ end }}
 {{ return index $name 0 }}
